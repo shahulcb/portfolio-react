@@ -11,7 +11,7 @@ function Navbar() {
         <div className='z-50 w-full h-16 fixed top-0 border-b border-customBorderColor bg-[#121212] lg:p-0 lg:w-60 lg:left-0 lg:h-screen lg:border-r lg:border-b-0'>
             <div className='w-full h-full px-8 flex items-center justify-between bg-[#121212] lg:px-0 lg:h-max lg:items-start lg:block lg:justify-normal'>
                 <div className='flex flex-col gap-1 lg:p-8 lg:border-b lg:border-customBorderColor'>
-                    <h1 className='font-normal text-xl hover:text-yellow-500 cursor-pointer'>theshahul</h1>
+                    <h1 className='font-normal text-xl hover:text-yellow-500 transition ease-in-out duration-500 cursor-pointer'>theshahul</h1>
                     <p className='font-light text-base text-customTextColor hidden lg:block'>MERN Stack Developer</p>
                 </div>
                 <div className='block cursor-pointer lg:hidden' onClick={() => setVissible((prev) => !prev)}>
