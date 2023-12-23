@@ -23,23 +23,23 @@ function Navbar() {
                 </div>
             </div>
             <div className={`-z-50 text-customTextColor absolute bg-[#121212] h-max w-full left-0 right-0 ${vissible ? "translate-y-[1px]" : "-translate-y-full"} transition-all ease-in-out duration-300 lg:translate-y-0 lg:flex lg:flex-col`}>
-                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out hover:duration-500 hover:bg-customHoverColor hover:text-white'>
+                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                     <FontAwesomeIcon icon={faHouseChimney} />
                     <p className='text-base font-medium'>Home</p>
                 </div>
-                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out hover:duration-500 hover:bg-customHoverColor hover:text-white'>
+                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                     <FontAwesomeIcon icon={faCode} />
                     <p className='text-base font-medium'>Works</p>
                 </div>
-                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out hover:duration-500 hover:bg-customHoverColor hover:text-white'>
+                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                     <FontAwesomeIcon icon={faNewspaper} />
                     <p className='text-base font-medium'>Blogs</p>
                 </div>
-                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out hover:duration-500 hover:bg-customHoverColor hover:text-white'>
+                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                     <FontAwesomeIcon icon={faAddressCard} />
                     <p className='text-base font-medium'>About</p>
                 </div>
-                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out hover:duration-500 hover:bg-customHoverColor hover:text-white'>
+                <div className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                     <FontAwesomeIcon icon={faEnvelope} />
                     <p className='text-base font-medium'>Contact</p>
                 </div>
