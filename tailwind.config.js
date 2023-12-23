@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        customBorderColor: "#292929",
+        customTextColor: "#808080",
+        customHoverColor: "#191919"
+      }
+    },
   },
   plugins: [],
 }
