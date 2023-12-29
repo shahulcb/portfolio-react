@@ -90,7 +90,7 @@ function Home() {
                 </Section>
                 <Section>
                     <h1 className="text-[28px] font-normal">Tools Stack</h1>
-                    <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
+                    <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
                         <ToolButton imageSrc={"https://logo.clearbit.com/Framer.com?size=500"} tag={"Websites"} title={"Framer"} />
                         <ToolButton imageSrc={"https://logo.clearbit.com/figmaelements.com?size=500"} tag={"Design"} title={"Figma"} />
                         <ToolButton imageSrc={"https://logo.clearbit.com/Google.com?size=500"} tag={"Communication"} title={"Google Workspace"} />
