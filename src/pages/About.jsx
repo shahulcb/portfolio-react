@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from "./Layout"
 import Section from '../components/Section'
 import Button from '../components/Button'
+import { Link } from 'react-router-dom'
 
 function About() {
     return (
@@ -16,7 +17,9 @@ function About() {
                 <p className='text-base font-light text-customTextColor'>What sets me apart is my expertise in no-code development. I believe that technology should be accessible to all, regardless of technical expertise. By harnessing the potential of no-code tools, I bridge the gap between design and implementation, bringing concepts to life without the need for traditional coding. My proficiency in various no-code platforms empowers me to rapidly prototype, iterate, and build functional applications that resonate with users.</p>
                 <p className='text-base font-light text-customTextColor'>Whether it's crafting captivating user interfaces, optimizing user flows, or bringing an app from concept to fruition, I'm dedicated to delivering high-quality design solutions that not only meet but exceed expectations. My commitment to staying updated with the latest design trends and no-code advancements ensures that my work is always at the forefront of innovation.</p>
                 <p className='text-base font-light text-customTextColor'>I invite you to explore my portfolio, where you'll discover a collection of projects that showcase my versatility as a product designer and my mastery of no-code tools. From user-centered mobile apps to visually striking web interfaces, each project reflects my passion for creating meaningful experiences that leave a lasting impact.</p>
-                <Button>Let's Talk</Button>
+                <Link to={"/contact"}>
+                    <Button>Let's Talk</Button>
+                </Link>
             </Section>
         </Layout>
     )

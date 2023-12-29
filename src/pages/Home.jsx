@@ -10,6 +10,7 @@ import Row from "../components/CardGrid/Row"
 import Col from "../components/CardGrid/Col"
 import Card from "../components/Card"
 import ToolButton from "../components/ToolButton"
+import { Link } from 'react-router-dom'
 
 function Home() {
     return (
@@ -18,7 +19,9 @@ function Home() {
                 <Section>
                     <div className='flex justify-between'>
                         <img src="https://framerusercontent.com/images/oIyuUF3XQRzJcoPj4QE687vFhCo.jpg?scale-down-to=512" alt="" className='w-[100px] h-[100px] rounded-md object-cover' />
-                        <OpenToWorkButton />
+                        <Link to={"/contact"}>
+                            <OpenToWorkButton />
+                        </Link>
                     </div>
                     <div className='flex flex-col gap-4 max-w-[800px]'>
                         <p className='text-[32px] font-normal leading-[120%] lg:text-[40px]'>Hey, I'm Shahul — I'm a Product Designer & No-Code Expert</p>
@@ -43,31 +46,47 @@ function Home() {
                     <h1 className="text-[28px] font-normal">Featured Works</h1>
                     <Row>
                         <Col colFor='type1'>
-                            <Card cardType={"type1"} tag={"BLOGGING"} title={"Mindful Blog Mobile App"} imageSrc={"https://framerusercontent.com/images/isuy4zvThkzCNgjg9FrXesN4DJA.webp"} />
+                            <Link to={"/works/1"}>
+                                <Card cardType={"type1"} tag={"BLOGGING"} title={"Mindful Blog Mobile App"} imageSrc={"https://framerusercontent.com/images/isuy4zvThkzCNgjg9FrXesN4DJA.webp"} />
+                            </Link>
                         </Col>
                         <Col colFor='type1'>
-                            <Card cardType={"type1"} tag={"E-COMMERCE"} title={"Pedal Website"} imageSrc={"https://framerusercontent.com/images/VL1paRJcTdgdBftv6w0aff87XQQ.jpg?scale-down-to=512"} />
+                            <Link to={"/works/1"}>
+                                <Card cardType={"type1"} tag={"E-COMMERCE"} title={"Pedal Website"} imageSrc={"https://framerusercontent.com/images/VL1paRJcTdgdBftv6w0aff87XQQ.jpg?scale-down-to=512"} />
+                            </Link>
                         </Col>
                         <Col colFor='type1'>
-                            <Card cardType={"type1"} tag={"E-COMMERCE"} title={"Nike Web App"} imageSrc={"https://framerusercontent.com/images/KQp15xIkdDYP9w6se5eUh9Rq7Y.jpg?scale-down-to=512"} />
+                            <Link to={"/works/1"}>
+                                <Card cardType={"type1"} tag={"E-COMMERCE"} title={"Nike Web App"} imageSrc={"https://framerusercontent.com/images/KQp15xIkdDYP9w6se5eUh9Rq7Y.jpg?scale-down-to=512"} />
+                            </Link>
                         </Col>
                     </Row>
-                    <Button>View All Works</Button>
+                    <Link to={"/works"}>
+                        <Button>View All Works</Button>
+                    </Link>
                 </Section>
                 <Section>
                     <h1 className="text-[28px] font-normal">Featured Blogs</h1>
                     <Row>
                         <Col colFor='type2'>
-                            <Card cardType={"type2"} tag={"DESIGN"} title={"What's the Difference Between UX and UI?"} imageSrc={"https://framerusercontent.com/images/b5BAXAQCSX9uo7JqPHBYYsrzQ.jpg?scale-down-to=512"} />
+                            <Link to={"/blogs/1"}>
+                                <Card cardType={"type2"} tag={"DESIGN"} title={"What's the Difference Between UX and UI?"} imageSrc={"https://framerusercontent.com/images/b5BAXAQCSX9uo7JqPHBYYsrzQ.jpg?scale-down-to=512"} />
+                            </Link>
                         </Col>
                         <Col colFor='type2'>
-                            <Card cardType={"type2"} tag={"PRODUCTIVITY"} title={"Take It One Step At A Time"} imageSrc={"https://framerusercontent.com/images/ErzMHG3Pd5Gk6RDm2eAFB93ihY.jpg?scale-down-to=512"} />
+                            <Link to={"/blogs/1"}>
+                                <Card cardType={"type2"} tag={"PRODUCTIVITY"} title={"Take It One Step At A Time"} imageSrc={"https://framerusercontent.com/images/ErzMHG3Pd5Gk6RDm2eAFB93ihY.jpg?scale-down-to=512"} />
+                            </Link>
                         </Col>
                         <Col colFor='type2'>
-                            <Card cardType={"type2"} tag={"DESIGN"} title={"How Do I Design A Website?"} imageSrc={"https://framerusercontent.com/images/Oj7IkTyPVB0eMk0EbluNfbb6ZcI.jpg?scale-down-to=512"} />
+                            <Link to={"/blogs/1"}>
+                                <Card cardType={"type2"} tag={"DESIGN"} title={"How Do I Design A Website?"} imageSrc={"https://framerusercontent.com/images/Oj7IkTyPVB0eMk0EbluNfbb6ZcI.jpg?scale-down-to=512"} />
+                            </Link>
                         </Col>
                     </Row>
-                    <Button>View All Blogs</Button>
+                    <Link to={"/blogs"}>
+                        <Button>View All Blogs</Button>
+                    </Link>
                 </Section>
                 <Section>
                     <h1 className="text-[28px] font-normal">Tools Stack</h1>

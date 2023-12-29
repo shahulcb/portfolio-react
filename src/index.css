@@ -8,3 +8,7 @@ body {
     color: #ffffff;
     font-family: 'Outfit', sans-serif;
 }
+
+.active {
+    @apply bg-customHoverColor text-white
+}
