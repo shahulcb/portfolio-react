@@ -1,9 +1,9 @@
 import React from 'react'
-import Layout from './Layout'
-import Section from '../components/Section'
-import Row from '../components/CardGrid/Row'
-import Col from '../components/CardGrid/Col'
-import Card from '../components/Card'
+import Layout from '../Layout'
+import Section from '../../components/Section'
+import Row from '../../components/CardGrid/Row'
+import Col from '../../components/CardGrid/Col'
+import Card from '../../components/Card'
 import { Link } from 'react-router-dom'
 
 function Blogs() {

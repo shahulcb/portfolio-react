@@ -1,9 +1,9 @@
 import React from 'react'
-import Layout from "./Layout"
-import Section from "../components/Section"
-import Input from "../components/Form/Input"
-import TextArea from "../components/Form/TextArea"
-import SubmitButton from "../components/Form/SubmitButton"
+import Layout from "../Layout"
+import Section from "../../components/Section"
+import Input from "../../components/Form/Input"
+import TextArea from "../../components/Form/TextArea"
+import SubmitButton from "../../components/Form/SubmitButton"
 
 function Contact() {
     return (

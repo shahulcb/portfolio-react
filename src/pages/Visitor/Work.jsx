@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from './Layout'
-import Section from '../components/Section'
-import BackButton from "../components/BackButton"
-import WorkContentSection from '../components/Work/WorkContentSection'
-import WorkHeaderSection from '../components/Work/WorkHeaderSection'
-import WorkImage from '../components/Work/WorkImage'
+import Layout from '../Layout'
+import Section from '../../components/Section'
+import BackButton from "../../components/BackButton"
+import WorkContentSection from '../../components/Work/WorkContentSection'
+import WorkHeaderSection from '../../components/Work/WorkHeaderSection'
+import WorkImage from '../../components/Work/WorkImage'
 
 function Work() {
     return (

@@ -1,15 +1,15 @@
 import React from 'react'
-import Layout from './Layout'
-import OpenToWorkButton from "../components/OpenToWorkButton"
-import SocialButton from '../components/SocialButton'
+import Layout from '../Layout'
+import OpenToWorkButton from "../../components/OpenToWorkButton"
+import SocialButton from '../../components/SocialButton'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faGithub, faDiscord, faSlack } from "@fortawesome/free-brands-svg-icons"
-import Section from '../components/Section'
-import Button from "../components/Button"
-import Row from "../components/CardGrid/Row"
-import Col from "../components/CardGrid/Col"
-import Card from "../components/Card"
-import ToolButton from "../components/ToolButton"
+import Section from '../../components/Section'
+import Button from "../../components/Button"
+import Row from "../../components/CardGrid/Row"
+import Col from "../../components/CardGrid/Col"
+import Card from "../../components/Card"
+import ToolButton from "../../components/ToolButton"
 import { Link } from 'react-router-dom'
 
 function Home() {

@@ -1,7 +1,7 @@
 import React from 'react'
-import Layout from "./Layout"
-import Section from '../components/Section'
-import Button from '../components/Button'
+import Layout from "../Layout"
+import Section from '../../components/Section'
+import Button from '../../components/Button'
 import { Link } from 'react-router-dom'
 
 function About() {

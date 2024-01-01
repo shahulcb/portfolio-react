@@ -1,10 +1,10 @@
 import React from 'react'
-import Layout from './Layout'
-import Section from '../components/Section'
-import BackButton from '../components/BackButton'
-import BlogHeaderSection from '../components/Blog/BlogHeaderSection'
-import BlogImage from '../components/Blog/BlogImage'
-import BlogContentSection from '../components/Blog/BlogContentSection'
+import Layout from '../Layout'
+import Section from '../../components/Section'
+import BackButton from '../../components/BackButton'
+import BlogHeaderSection from '../../components/Blog/BlogHeaderSection'
+import BlogImage from '../../components/Blog/BlogImage'
+import BlogContentSection from '../../components/Blog/BlogContentSection'
 
 function Blog() {
     return (
