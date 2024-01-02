@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCode, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
+import { faCode, faHouseChimney, faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons'
 import { faAddressCard, faEnvelope, faNewspaper } from "@fortawesome/free-regular-svg-icons"
 import { NavLink, useLocation } from 'react-router-dom'
 
-function Navbar() {
+function Navbar({ userRole }) {
 
     const [visible, setVisible] = useState(false)
     const location = useLocation()
@@ -41,26 +41,52 @@ function Navbar() {
                 </div>
             </div>
             <div className={`-z-50 text-customTextColor absolute bg-[#121212] h-max w-full left-0 right-0 ${visible ? "translate-y-[1px]" : "-translate-y-full"} transition-all ease-in-out duration-300 lg:translate-y-0 lg:flex lg:flex-col`}>
-                <NavLink to={"/"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
-                    <FontAwesomeIcon icon={faHouseChimney} />
-                    <p className='text-base font-medium'>Home</p>
-                </NavLink>
-                <NavLink to={"/works"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
-                    <FontAwesomeIcon icon={faCode} />
-                    <p className='text-base font-medium'>Works</p>
-                </NavLink>
-                <NavLink to={"/blogs"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
-                    <FontAwesomeIcon icon={faNewspaper} />
-                    <p className='text-base font-medium'>Blogs</p>
-                </NavLink>
-                <NavLink to={"/about"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
-                    <FontAwesomeIcon icon={faAddressCard} />
-                    <p className='text-base font-medium'>About</p>
-                </NavLink>
-                <NavLink to={"/contact"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
-                    <FontAwesomeIcon icon={faEnvelope} />
-                    <p className='text-base font-medium'>Contact</p>
-                </NavLink>
+                {
+                    userRole === "admin" ?
+                        <>
+                            <NavLink to={"/admin/dashboard"} end className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faHouseChimney} />
+                                <p className='text-base font-medium'>Home</p>
+                            </NavLink>
+                            <NavLink to={"/admin/dashboard/personal-details"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faAddressCard} />
+                                <p className='text-base font-medium'>Personal Details</p>
+                            </NavLink>
+                            <NavLink to={"/admin/dashboard/tool-stack"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faScrewdriverWrench} />
+                                <p className='text-base font-medium'>Tool Stack</p>
+                            </NavLink>
+                            <NavLink to={"/admin/dashboard/post-work"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faCode} />
+                                <p className='text-base font-medium'>Post Work</p>
+                            </NavLink>
+                            <NavLink to={"/admin/dashboard/post-blog"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faNewspaper} />
+                                <p className='text-base font-medium'>Post Blog</p>
+                            </NavLink>
+                        </> : <>
+                            <NavLink to={"/"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faHouseChimney} />
+                                <p className='text-base font-medium'>Home</p>
+                            </NavLink>
+                            <NavLink to={"/works"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faCode} />
+                                <p className='text-base font-medium'>Works</p>
+                            </NavLink>
+                            <NavLink to={"/blogs"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faNewspaper} />
+                                <p className='text-base font-medium'>Blogs</p>
+                            </NavLink>
+                            <NavLink to={"/about"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faAddressCard} />
+                                <p className='text-base font-medium'>About</p>
+                            </NavLink>
+                            <NavLink to={"/contact"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                                <FontAwesomeIcon icon={faEnvelope} />
+                                <p className='text-base font-medium'>Contact</p>
+                            </NavLink>
+                        </>
+                }
             </div>
         </div>
     )

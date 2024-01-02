@@ -6,13 +6,15 @@ import Contact from "./pages/Visitor/Contact";
 import Home from "./pages/Visitor/Home";
 import Work from "./pages/Visitor/Work";
 import Works from "./pages/Visitor/Works";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 
 function App() {
+  const location = useLocation()
+  const isAdmin = location.pathname.startsWith("/admin")
   return (
     <>
-      <Navbar />
+      {isAdmin ? <Navbar userRole="admin" /> : <Navbar userRole="visitor" />}
       <Routes>
         <Route index element={<Home />} />
         <Route path="/works" element={<Works />} />
@@ -21,7 +23,15 @@ function App() {
         <Route path="/blogs/:id" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes>
+
+        <Route path="/admin/dashboard">
+          <Route index element={<></>} />
+          <Route path="personal-details" element={<></>} />
+          <Route path="tool-stack" element={<></>} />
+          <Route path="post-work" element={<></>} />
+          <Route path="post-blog" element={<></>} />
+        </Route>
+      </Routes >
     </>
   );
 }
