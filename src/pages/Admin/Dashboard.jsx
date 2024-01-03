@@ -14,7 +14,7 @@ function Dashboard() {
                         <img src="https://framerusercontent.com/images/oIyuUF3XQRzJcoPj4QE687vFhCo.jpg?scale-down-to=512" alt="" className='w-[100px] h-[100px] rounded-md object-cover' />
                         <input type="file" name="" id="image" className='hidden' />
                         <label htmlFor="image" className='w-full h-full cursor-pointer'>
-                            Edit photo
+                            Upload photo
                         </label>
                     </div>
                     <div className='flex gap-5 flex-col md:flex-row'>

@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import AllBlogs from "./pages/Admin/AllBlogs";
 import AllWorks from "./pages/Admin/AllWorks";
 import Dashboard from "./pages/Admin/Dashboard";
 import EditAbout from "./pages/Admin/EditAbout";
@@ -33,7 +34,7 @@ function App() {
           <Route path="about" element={<EditAbout />} />
           <Route path="tool-stack" element={<ToolStack />} />
           <Route path="works" element={<AllWorks />} />
-          <Route path="blogs" element={<></>} />
+          <Route path="blogs" element={<AllBlogs />} />
         </Route>
       </Routes >
     </>
