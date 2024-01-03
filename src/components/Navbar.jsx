@@ -56,13 +56,13 @@ function Navbar({ userRole }) {
                                 <FontAwesomeIcon icon={faScrewdriverWrench} />
                                 <p className='text-base font-medium'>Tool Stack</p>
                             </NavLink>
-                            <NavLink to={"/admin/dashboard/post-work"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                            <NavLink to={"/admin/dashboard/works"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                                 <FontAwesomeIcon icon={faCode} />
-                                <p className='text-base font-medium'>Post Work</p>
+                                <p className='text-base font-medium'>Works</p>
                             </NavLink>
-                            <NavLink to={"/admin/dashboard/post-blog"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                            <NavLink to={"/admin/dashboard/blogs"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                                 <FontAwesomeIcon icon={faNewspaper} />
-                                <p className='text-base font-medium'>Post Blog</p>
+                                <p className='text-base font-medium'>Blogs</p>
                             </NavLink>
                         </> : <>
                             <NavLink to={"/"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>

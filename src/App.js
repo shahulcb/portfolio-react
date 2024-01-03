@@ -1,4 +1,5 @@
 import Navbar from "./components/Navbar";
+import AllWorks from "./pages/Admin/AllWorks";
 import Dashboard from "./pages/Admin/Dashboard";
 import EditAbout from "./pages/Admin/EditAbout";
 import ToolStack from "./pages/Admin/ToolStack";
@@ -31,8 +32,8 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="about" element={<EditAbout />} />
           <Route path="tool-stack" element={<ToolStack />} />
-          <Route path="post-work" element={<></>} />
-          <Route path="post-blog" element={<></>} />
+          <Route path="works" element={<AllWorks />} />
+          <Route path="blogs" element={<></>} />
         </Route>
       </Routes >
     </>
