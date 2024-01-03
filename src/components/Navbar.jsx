@@ -48,9 +48,9 @@ function Navbar({ userRole }) {
                                 <FontAwesomeIcon icon={faHouseChimney} />
                                 <p className='text-base font-medium'>Home</p>
                             </NavLink>
-                            <NavLink to={"/admin/dashboard/personal-details"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
+                            <NavLink to={"/admin/dashboard/about"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                                 <FontAwesomeIcon icon={faAddressCard} />
-                                <p className='text-base font-medium'>Personal Details</p>
+                                <p className='text-base font-medium'>About</p>
                             </NavLink>
                             <NavLink to={"/admin/dashboard/tool-stack"} className='flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white'>
                                 <FontAwesomeIcon icon={faScrewdriverWrench} />

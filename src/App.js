@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Admin/Dashboard";
+import EditAbout from "./pages/Admin/EditAbout";
 import About from "./pages/Visitor/About";
 import Blog from "./pages/Visitor/Blog";
 import Blogs from "./pages/Visitor/Blogs";
@@ -27,7 +28,7 @@ function App() {
 
         <Route path="/admin/dashboard">
           <Route index element={<Dashboard />} />
-          <Route path="personal-details" element={<></>} />
+          <Route path="about" element={<EditAbout />} />
           <Route path="tool-stack" element={<></>} />
           <Route path="post-work" element={<></>} />
           <Route path="post-blog" element={<></>} />
