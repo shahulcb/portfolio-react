@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from "../Layout"
 import Section from "../../components/Section"
-import SubmitButton from "../../components/Form/SubmitButton"
+import FormButton from "../../components/Form/FormButton"
 import { Formik, Form, ErrorMessage, Field } from 'formik'
 import * as Yup from 'yup';
 
@@ -48,7 +48,7 @@ function Contact() {
                                 <Field as="textarea" rows={5} placeholder="Leave a comment here" name="comment" id="comment" />
                                 <ErrorMessage name='comment' component="span" />
                             </div>
-                            <SubmitButton>Send</SubmitButton>
+                            <FormButton>Send</FormButton>
                         </div>
                     </Form>
                 </Formik>

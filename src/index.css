@@ -49,3 +49,7 @@ input[type=password],
 textarea:focus {
     @apply outline-none
 }
+
+input[type=file]::file-selector-button {
+    @apply bg-customHoverColor border-none h-[50px] px-5 rounded-md text-white
+}

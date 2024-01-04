@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from '../Layout'
 import Section from '../../components/Section'
-import SubmitButton from '../../components/Form/SubmitButton'
+import FormButton from '../../components/Form/FormButton'
 import TextArea from '../../components/Form/TextArea'
 
 function EditAbout() {
@@ -10,7 +10,7 @@ function EditAbout() {
             <Section>
                 <div className='flex flex-col gap-5'>
                     <img src="https://framerusercontent.com/images/iRzmTweh5r606MPztBlitVggyps.webp" alt="" className='max-h-[400px] w-full object-cover rounded-md' />
-                    <SubmitButton>Upload photo</SubmitButton>
+                    <FormButton>Upload photo</FormButton>
                     <div className='flex flex-col gap-2 w-full'>
                         <label htmlFor="" className='ml-2 text-customTextColor'>Description</label>
                         <TextArea rows={10} value={`With a background in product design, I thrive on crafting digital experiences that seamlessly blend aesthetics, functionality, and user-centered design principles. My journey in the world of design has equipped me with a keen eye for detail, a deep understanding of user behavior, and the ability to transform complex concepts into intuitive, visually appealing products.
@@ -19,8 +19,8 @@ function EditAbout() {
                         `} />
                     </div>
                     <div className='flex gap-5'>
-                        <SubmitButton>Discard</SubmitButton>
-                        <SubmitButton>Save</SubmitButton>
+                        <FormButton>Discard</FormButton>
+                        <FormButton>Save</FormButton>
                     </div>
                 </div>
             </Section>
