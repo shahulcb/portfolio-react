@@ -12,3 +12,40 @@ body {
 .active {
     @apply bg-customHoverColor text-white
 }
+
+.form-control {
+    @apply flex flex-col gap-1 w-full
+}
+
+.form-control>label {
+    @apply ml-2 font-light
+}
+
+.form-control>span {
+    @apply text-red-500 ml-2 text-sm
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea {
+    @apply w-full h-[50px] bg-customHoverColor border-none rounded-md text-base text-white font-normal px-3 py-2
+}
+
+textarea {
+    @apply h-full resize-none
+}
+
+input[type=text]::placeholder,
+input[type=email]::placeholder,
+input[type=password]::placeholder,
+textarea::placeholder {
+    @apply text-customTextColor
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+textarea:focus {
+    @apply outline-none
+}
