@@ -3,6 +3,7 @@ import AllBlogs from "./pages/Admin/AllBlogs";
 import AllWorks from "./pages/Admin/AllWorks";
 import Dashboard from "./pages/Admin/Dashboard";
 import EditAbout from "./pages/Admin/EditAbout";
+import Login from "./pages/Admin/Login";
 import ToolStack from "./pages/Admin/ToolStack";
 import About from "./pages/Visitor/About";
 import Blog from "./pages/Visitor/Blog";
@@ -17,9 +18,12 @@ import { Routes, Route, useLocation } from "react-router-dom";
 function App() {
   const location = useLocation()
   const isAdmin = location.pathname.startsWith("/admin")
+  const isLoginPage = location.pathname.startsWith("/admin/login")
   return (
     <>
-      {isAdmin ? <Navbar userRole="admin" /> : <Navbar userRole="visitor" />}
+      {!isLoginPage && (
+        isAdmin ? <Navbar userRole="admin" /> : <Navbar userRole="visitor" />
+      )}
       <Routes>
         <Route index element={<Home />} />
         <Route path="/works" element={<Works />} />
@@ -29,6 +33,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
+        <Route path="/admin/login" element={<Login />} />
         <Route path="/admin/dashboard">
           <Route index element={<Dashboard />} />
           <Route path="about" element={<EditAbout />} />
