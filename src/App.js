@@ -1,29 +1,17 @@
 import Navbar from "./components/Navbar";
-import AllBlogs from "./pages/Admin/AllBlogs";
-import AllWorks from "./pages/Admin/AllWorks";
-import Dashboard from "./pages/Admin/Dashboard";
-import EditAbout from "./pages/Admin/EditAbout";
-import Login from "./pages/Admin/Login";
-import ToolStack from "./pages/Admin/ToolStack";
-import About from "./pages/Visitor/About";
-import Blog from "./pages/Visitor/Blog";
-import Blogs from "./pages/Visitor/Blogs";
-import Contact from "./pages/Visitor/Contact";
-import Home from "./pages/Visitor/Home";
-import Work from "./pages/Visitor/Work";
-import Works from "./pages/Visitor/Works";
-import { Routes, Route, useLocation } from "react-router-dom";
-
+import About from "./pages/About";
+import Blog from "./pages/Blog";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Work from "./pages/Work";
+import Works from "./pages/Works";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const location = useLocation()
-  const isAdmin = location.pathname.startsWith("/admin")
-  const isLoginPage = location.pathname.startsWith("/admin/login")
   return (
     <>
-      {!isLoginPage && (
-        isAdmin ? <Navbar userRole="admin" /> : <Navbar userRole="visitor" />
-      )}
+      <Navbar />
       <Routes>
         <Route index element={<Home />} />
         <Route path="/works" element={<Works />} />
@@ -32,16 +20,7 @@ function App() {
         <Route path="/blogs/:id" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-
-        <Route path="/admin/login" element={<Login />} />
-        <Route path="/admin/dashboard">
-          <Route index element={<Dashboard />} />
-          <Route path="about" element={<EditAbout />} />
-          <Route path="tool-stack" element={<ToolStack />} />
-          <Route path="works" element={<AllWorks />} />
-          <Route path="blogs" element={<AllBlogs />} />
-        </Route>
-      </Routes >
+      </Routes>
     </>
   );
 }
