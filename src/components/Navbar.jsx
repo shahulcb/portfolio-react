@@ -4,6 +4,7 @@ import {
   faCode,
   faHouseChimney,
   faScrewdriverWrench,
+  faSuitcase,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faAddressCard,
@@ -11,11 +12,23 @@ import {
   faNewspaper,
 } from "@fortawesome/free-regular-svg-icons";
 import { NavLink, useLocation } from "react-router-dom";
+import { useMe } from "../context/MeContext";
 
 function Navbar() {
+  const { me } = useMe();
   const [visible, setVisible] = useState(false);
   const location = useLocation();
   const navbarRef = useRef(null);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % me?.roles.length);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [me?.roles.length]);
+
   useEffect(() => {
     const handleOutSideClick = (event) => {
       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
@@ -40,10 +53,10 @@ function Navbar() {
       <div className="w-full h-full px-8 flex items-center justify-between bg-[#121212] lg:px-0 lg:h-max lg:items-start lg:block lg:justify-normal">
         <div className="flex flex-col gap-1 lg:p-8 lg:border-b lg:border-customBorderColor">
           <h1 className="font-normal text-xl hover:text-yellow-500 transition ease-in-out duration-500 cursor-pointer">
-            theshahul
+            {me?.username}
           </h1>
           <p className="font-light text-base text-customTextColor hidden lg:block">
-            MERN Stack Developer
+            {me?.roles[currentIndex]}
           </p>
         </div>
         <div
@@ -85,12 +98,19 @@ function Navbar() {
           <p className="text-base font-medium">Works</p>
         </NavLink>
         <NavLink
+          to={"/services"}
+          className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
+        >
+          <FontAwesomeIcon icon={faSuitcase} />
+          <p className="text-base font-medium">Services</p>
+        </NavLink>
+        {/* <NavLink
           to={"/blogs"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
         >
           <FontAwesomeIcon icon={faNewspaper} />
           <p className="text-base font-medium">Blogs</p>
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to={"/about"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"

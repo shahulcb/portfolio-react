@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Layout from "./Layout";
 import OpenToWorkButton from "../components/OpenToWorkButton";
 import SocialButton from "../components/SocialButton";
@@ -16,15 +16,21 @@ import Col from "../components/CardGrid/Col";
 import Card from "../components/Card";
 import ToolButton from "../components/ToolButton";
 import { Link } from "react-router-dom";
+import { useMe } from "../context/MeContext";
 
 function Home() {
+  const { me } = useMe();
+
+  useEffect(() => {
+    document.title = me?.username + "| Home";
+  }, [me]);
   return (
     <>
       <Layout>
         <Section>
           <div className="flex justify-between">
             <img
-              src="https://framerusercontent.com/images/oIyuUF3XQRzJcoPj4QE687vFhCo.jpg?scale-down-to=512"
+              src={me?.images[0]?.url + `?fm=webp&q=75&w=200&h=200`}
               alt=""
               className="w-[100px] h-[100px] rounded-md object-cover"
             />
@@ -34,30 +40,21 @@ function Home() {
           </div>
           <div className="flex flex-col gap-4 max-w-[800px]">
             <p className="text-[32px] font-normal leading-[120%] lg:text-[40px]">
-              Hey, I'm Shahul — I'm a Product Designer & No-Code Expert
+              {me?.title}
             </p>
             <p className="text-customTextColor text-lg font-light">
-              I am a seasoned product designer with 5 years of experience
-              specializing in SaaS solutions, crafting user-centric experiences
-              that drive innovation and efficiency.
+              {me?.about[0]}
             </p>
           </div>
           <div className="flex gap-4">
-            <SocialButton>
-              <FontAwesomeIcon icon={faLinkedin} />
-            </SocialButton>
-            <SocialButton>
-              <FontAwesomeIcon icon={faGithub} />
-            </SocialButton>
-            <SocialButton>
-              <FontAwesomeIcon icon={faDiscord} />
-            </SocialButton>
-            <SocialButton>
-              <FontAwesomeIcon icon={faSlack} />
-            </SocialButton>
+            {me?.socialLinks?.map((socialLink) => (
+              <SocialButton url={socialLink?.url}>
+                <i className={socialLink?.icon}></i>
+              </SocialButton>
+            ))}
           </div>
         </Section>
-        <Section>
+        {/* <Section>
           <h1 className="text-[28px] font-normal">Featured Works</h1>
           <Row>
             <Col colFor="type1">
@@ -100,8 +97,8 @@ function Home() {
           <Link to={"/works"}>
             <Button>View All Works</Button>
           </Link>
-        </Section>
-        <Section>
+        </Section> */}
+        {/* <Section>
           <h1 className="text-[28px] font-normal">Featured Blogs</h1>
           <Row>
             <Col colFor="type2">
@@ -144,16 +141,18 @@ function Home() {
           <Link to={"/blogs"}>
             <Button>View All Blogs</Button>
           </Link>
-        </Section>
+        </Section> */}
         <Section>
           <h1 className="text-[28px] font-normal">Tools Stack</h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <ToolButton
-              imageSrc={"https://logo.clearbit.com/Framer.com?size=500"}
-              tag={"Websites"}
-              title={"Framer"}
-            />
-            <ToolButton
+            {me?.toolStacks?.map((toolStack, index) => (
+              <ToolButton
+                imageSrc={toolStack?.image}
+                tag={toolStack?.tag}
+                title={toolStack?.title}
+              />
+            ))}
+            {/* <ToolButton
               imageSrc={"https://logo.clearbit.com/figmaelements.com?size=500"}
               tag={"Design"}
               title={"Figma"}
@@ -172,7 +171,7 @@ function Home() {
               imageSrc={"https://logo.clearbit.com/Stripe.com?size=500"}
               tag={"Invoices"}
               title={"Stripe"}
-            />
+            /> */}
           </div>
         </Section>
       </Layout>

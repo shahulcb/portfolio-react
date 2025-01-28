@@ -1,61 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Layout from "./Layout";
 import Section from "../components/Section";
 import BackButton from "../components/BackButton";
 import WorkContentSection from "../components/Work/WorkContentSection";
 import WorkHeaderSection from "../components/Work/WorkHeaderSection";
 import WorkImage from "../components/Work/WorkImage";
+import { useParams } from "react-router-dom";
+import { GET_SINGLE_WORK } from "../services/queries";
+import client from "../services/datoCMS";
+import { useMe } from "../context/MeContext";
 
 function Work() {
+  const { id } = useParams();
+  const [work, setWork] = useState({});
+  const { me } = useMe();
+
+  useEffect(() => {
+    document.title = me?.username + "| " + work?.title;
+  }, [work]);
+
+  function orderTheImageAndContent() {
+    let imageCount = work?.images?.length;
+    let contentCount = work?.workContents?.length;
+    let i = 0;
+    const components = [];
+
+    for (i; i < contentCount; i++) {
+      components.push(
+        <React.Fragment key={i}>
+          <WorkImage imageSrc={work?.images[i]?.url} />
+          <WorkContentSection
+            title={work?.workContents[i]?.title}
+            points={work?.workContents[i]?.points}
+          />
+        </React.Fragment>
+      );
+    }
+    for (i; i < imageCount; i++) {
+      components.push(<WorkImage imageSrc={work?.images[i]?.url} key={i} />);
+    }
+    return components;
+  }
+  useEffect(() => {
+    const fetchWork = async () => {
+      try {
+        const { data } = await client.query({
+          query: GET_SINGLE_WORK,
+          variables: { id },
+        });
+        setWork(data.work);
+      } catch (error) {
+        console.error("Error fetching works:", error);
+      }
+    };
+
+    fetchWork();
+  }, []);
   return (
     <Layout>
       <Section className={"border-none"}>
         <BackButton />
         <WorkHeaderSection
-          title={"Nike Web App"}
-          description={
-            "The Nike Web App redesign marked a significant step towards revolutionizing the way athletes and fitness enthusiasts engage with their training routines."
-          }
-          industry={"E-Commerce"}
-          timeline={"6 months"}
-          roles={"Product Design, UX Audit, Prototyping"}
+          title={work?.title}
+          description={work?.description}
+          points={work?.mainPoints}
+          url={work?.url}
         />
-        <WorkImage
-          imageSrc={
-            "https://framerusercontent.com/images/YqUXyuKZSiF1WVYqsRcbAFsZDw.webp"
-          }
-        />
-        <WorkContentSection
-          title={"My Role"}
-          content={[
-            {
-              title: "Responsibilities",
-              text: "As the lead Product Designer, my responsibilities encompassed the entire design lifecycle from user research to visual design and user experience.",
-            },
-            {
-              title: "Collaboration",
-              text: "Collaboration was vital in creating a cohesive and successful product. I worked closely with developers, product managers, and content creators.",
-            },
-          ]}
-        />
-        <WorkImage
-          imageSrc={
-            "https://framerusercontent.com/images/QYdp7x46m3LB8NAvPjLQpxcAQ.webp"
-          }
-        />
-        <WorkContentSection
-          title={"The Project"}
-          content={[
-            {
-              title: "Challenge",
-              text: "One of the significant challenges was to strike a balance between presenting a vast variety of content and maintaining a clean, uncluttered interface. The challenge was to enhance content discoverability while ensuring that users were not overwhelmed by choices.",
-            },
-            {
-              title: "Outcome",
-              text: "The collaborative efforts and strategic design decisions resulted in a successful outcome — average session duration and articles read per session saw an impressive increase of 50% within the first two months post-launch.",
-            },
-          ]}
-        />
+        {/* {work?.images?.map((image, index) => (
+          <WorkImage imageSrc={image?.url} />
+        ))}
+        {work?.workContents?.map((workContent, index) => (
+          <WorkContentSection
+            title={workContent?.title}
+            points={workContent?.points}
+          />
+        ))} */}
+        {orderTheImageAndContent()}
       </Section>
     </Layout>
   );

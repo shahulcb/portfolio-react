@@ -33,7 +33,7 @@ textarea {
 }
 
 textarea {
-    @apply h-full resize-none
+    @apply h-36 resize-none
 }
 
 input[type=text]::placeholder,

@@ -1,26 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "./Layout";
 import Section from "../components/Section";
 import FormButton from "../components/Form/FormButton";
-import { Formik, Form, ErrorMessage, Field } from "formik";
-import * as Yup from "yup";
+import { useMe } from "../context/MeContext";
 
 function Contact() {
-  const initialValues = {
-    name: "",
-    email: "",
-    comment: "",
-  };
-  const validationSchema = Yup.object({
-    name: Yup.string().required("Please enter your name"),
-    email: Yup.string()
-      .required("Please enter your email")
-      .email("Email format is invaid"),
-    comment: Yup.string().required("Please enter a comments"),
-  });
-  const onSubmit = (values) => {
-    console.log(values);
-  };
+  const { me } = useMe();
+
+  useEffect(() => {
+    document.title = me?.username + "| Contact";
+  }, [me]);
+
   return (
     <Layout>
       <Section className={"border-none max-w-[700px] mx-auto lg:px-0"}>
@@ -29,51 +19,49 @@ function Contact() {
           If you'd like to talk about a potential project or just say hi, send
           me a message or email me at{" "}
           <a
-            href=""
+            href={"mailto:" + me?.email}
             className="text-white hover:text-yellow-500 transition ease-in-out duration-500"
           >
-            theshahulofcl@gmail.com
+            {me?.email}
           </a>
         </p>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={onSubmit}
-        >
-          <Form>
-            <div className="flex flex-col gap-3">
-              <div className="flex gap-3 flex-col md:flex-row">
-                <div className="form-control">
-                  <label htmlFor="name">Name</label>
-                  <Field type="text" placeholder="name" name="name" id="name" />
-                  <ErrorMessage name="name" component="span" />
-                </div>
-                <div className="form-control">
-                  <label htmlFor="email">Email</label>
-                  <Field
-                    type="email"
-                    placeholder="Eamil"
-                    name="email"
-                    id="email"
-                  />
-                  <ErrorMessage name="email" component="span" />
-                </div>
+
+        <form name="contact" method="POST" data-netlify="true">
+          <div className="flex flex-col gap-3">
+            <div className="flex gap-3 flex-col md:flex-row">
+              <div className="form-control">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  placeholder="name"
+                  name="name"
+                  id="name"
+                  required
+                />
               </div>
               <div className="form-control">
-                <label htmlFor="comment">Leave a comment here</label>
-                <Field
-                  as="textarea"
-                  rows={5}
-                  placeholder="Leave a comment here"
-                  name="comment"
-                  id="comment"
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  placeholder="Eamil"
+                  name="email"
+                  id="email"
+                  required
                 />
-                <ErrorMessage name="comment" component="span" />
               </div>
-              <FormButton>Send</FormButton>
             </div>
-          </Form>
-        </Formik>
+            <div className="form-control">
+              <label htmlFor="comment">Leave a comment here</label>
+              <textarea
+                placeholder="Leave a comment here"
+                name="comment"
+                id="comment"
+                required
+              ></textarea>
+            </div>
+            <FormButton>Send</FormButton>
+          </div>
+        </form>
       </Section>
     </Layout>
   );
