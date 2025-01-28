@@ -23,8 +23,10 @@ function About() {
             className="max-h-[400px] w-full object-cover rounded-md"
           />
         </div>
-        {me?.about?.slice(2).map((text) => (
-          <p className="text-base font-light text-customTextColor">{text}</p>
+        {me?.about?.slice(2).map((text, index) => (
+          <p className="text-base font-light text-customTextColor" key={index}>
+            {text}
+          </p>
         ))}
 
         <Link to={"/contact"}>

@@ -1,5 +1,3 @@
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Button from "../Button";
 
@@ -11,7 +9,7 @@ function WorkHeaderSection({ title, description, points, url }) {
         <p className="text-base font-light text-customTextColor">
           {description}
         </p>
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noopener noreferrer">
           <Button className={"w-full lg:w-[200px]"}>View Live App</Button>
         </a>
       </div>
@@ -21,7 +19,10 @@ function WorkHeaderSection({ title, description, points, url }) {
             className="flex gap-5 items-center text-base font-light text-customTextColor"
             key={index}
           >
-            <FontAwesomeIcon icon={faSquare} color="#eab308" width={"10px"} />
+            <i
+              className="fa-regular fa-square"
+              style={{ color: "#eab308", width: "10px" }}
+            ></i>
             {point}
           </p>
         ))}

@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Layout from "./Layout";
 import OpenToWorkButton from "../components/OpenToWorkButton";
 import SocialButton from "../components/SocialButton";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faGithub,
-  faDiscord,
-  faSlack,
-} from "@fortawesome/free-brands-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faLinkedin,
+//   faGithub,
+//   faDiscord,
+//   faSlack,
+// } from "@fortawesome/free-brands-svg-icons";
 import Section from "../components/Section";
-import Button from "../components/Button";
-import Row from "../components/CardGrid/Row";
-import Col from "../components/CardGrid/Col";
-import Card from "../components/Card";
+// import Button from "../components/Button";
+// import Row from "../components/CardGrid/Row";
+// import Col from "../components/CardGrid/Col";
+// import Card from "../components/Card";
 import ToolButton from "../components/ToolButton";
 import { Link } from "react-router-dom";
 import { useMe } from "../context/MeContext";
@@ -47,8 +47,8 @@ function Home() {
             </p>
           </div>
           <div className="flex gap-4">
-            {me?.socialLinks?.map((socialLink) => (
-              <SocialButton url={socialLink?.url}>
+            {me?.socialLinks?.map((socialLink, index) => (
+              <SocialButton url={socialLink?.url} key={index}>
                 <i className={socialLink?.icon}></i>
               </SocialButton>
             ))}
@@ -147,6 +147,7 @@ function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {me?.toolStacks?.map((toolStack, index) => (
               <ToolButton
+                key={index}
                 imageSrc={toolStack?.image}
                 tag={toolStack?.tag}
                 title={toolStack?.title}

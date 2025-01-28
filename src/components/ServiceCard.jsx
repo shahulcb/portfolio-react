@@ -1,7 +1,5 @@
 import React from "react";
 import Button from "./Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
 
 const ServiceCard = ({ title, tag, description, points }) => {
@@ -22,7 +20,10 @@ const ServiceCard = ({ title, tag, description, points }) => {
             className="flex gap-5 items-center text-[15px] font-light text-customTextColor"
             key={index}
           >
-            <FontAwesomeIcon icon={faSquare} color="#eab308" width={"10px"} />
+            <i
+              className="fa-regular fa-square"
+              style={{ color: "#eab308", width: "10px" }}
+            ></i>
             {point}
           </p>
         ))}

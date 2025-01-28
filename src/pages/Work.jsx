@@ -17,7 +17,7 @@ function Work() {
 
   useEffect(() => {
     document.title = me?.username + "| " + work?.title;
-  }, [work]);
+  }, [work]); // eslint-disable-next-line
 
   function orderTheImageAndContent() {
     let imageCount = work?.images?.length;
@@ -55,7 +55,7 @@ function Work() {
     };
 
     fetchWork();
-  }, []);
+  }, []); // eslint-disable-next-line
   return (
     <Layout>
       <Section className={"border-none"}>

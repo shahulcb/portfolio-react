@@ -1,16 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCode,
-  faHouseChimney,
-  faScrewdriverWrench,
-  faSuitcase,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faAddressCard,
-  faEnvelope,
-  faNewspaper,
-} from "@fortawesome/free-regular-svg-icons";
 import { NavLink, useLocation } from "react-router-dom";
 import { useMe } from "../context/MeContext";
 
@@ -87,21 +75,21 @@ function Navbar() {
           to={"/"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
         >
-          <FontAwesomeIcon icon={faHouseChimney} />
+          <i className="fa-solid fa-house-chimney"></i>
           <p className="text-base font-medium">Home</p>
         </NavLink>
         <NavLink
           to={"/works"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
         >
-          <FontAwesomeIcon icon={faCode} />
+          <i className="fa-solid fa-code"></i>
           <p className="text-base font-medium">Works</p>
         </NavLink>
         <NavLink
           to={"/services"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
         >
-          <FontAwesomeIcon icon={faSuitcase} />
+          <i className="fa-solid fa-suitcase"></i>
           <p className="text-base font-medium">Services</p>
         </NavLink>
         {/* <NavLink
@@ -115,14 +103,14 @@ function Navbar() {
           to={"/about"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
         >
-          <FontAwesomeIcon icon={faAddressCard} />
+          <i className="fa-regular fa-address-card"></i>
           <p className="text-base font-medium">About</p>
         </NavLink>
         <NavLink
           to={"/contact"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
         >
-          <FontAwesomeIcon icon={faEnvelope} />
+          <i className="fa-regular fa-envelope"></i>
           <p className="text-base font-medium">Contact</p>
         </NavLink>
       </div>

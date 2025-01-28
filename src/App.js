@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
-import Blog from "./pages/Blog";
-import Blogs from "./pages/Blogs";
+// import Blog from "./pages/Blog";
+// import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
