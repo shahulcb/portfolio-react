@@ -8,35 +8,35 @@ import toast from "react-hot-toast";
 function Contact() {
   const { me } = useMe();
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    comment: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   comment: "",
+  // });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
 
   useEffect(() => {
     document.title = me?.username + "| Contact";
   }, [me]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const formDataEncoded = new FormData(form);
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formDataEncoded).toString()
-    })
-      .then(
-        () => toast.success("Form submitted successfully!"),
-        setFormData({ name: "", email: "", comment: "" })
-      )
-      .catch((error) => toast.error("Form submission failed"));
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   const formDataEncoded = new FormData(form);
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: new URLSearchParams(formDataEncoded).toString()
+  //   })
+  //     .then(
+  //       () => toast.success("Form submitted successfully!"),
+  //       setFormData({ name: "", email: "", comment: "" })
+  //     )
+  //     .catch((error) => toast.error("Form submission failed"));
+  // };
   return (
     <Layout>
       <Section className={"border-none max-w-[700px] mx-auto lg:px-0"}>
@@ -54,9 +54,9 @@ function Contact() {
 
         <form
           name="contact"
-          method="POST"
+          method="post"
           data-netlify="true"
-          onSubmit={handleSubmit}
+{/*           onSubmit={handleSubmit} */}
         >
           <input type="hidden" name="form-name" value="contact" />
           <div className="flex flex-col gap-3">
@@ -69,8 +69,8 @@ function Contact() {
                   name="name"
                   id="name"
                   required
-                  value={formData.name}
-                  onChange={handleChange}
+{/*                   value={formData.name}
+                  onChange={handleChange} */}
                 />
               </div>
               <div className="form-control">
@@ -81,8 +81,8 @@ function Contact() {
                   name="email"
                   id="email"
                   required
-                  value={formData.email}
-                  onChange={handleChange}
+{/*                   value={formData.email}
+                  onChange={handleChange} */}
                 />
               </div>
             </div>
@@ -93,8 +93,8 @@ function Contact() {
                 name="comment"
                 id="comment"
                 required
-                value={formData.comment}
-                onChange={handleChange}
+{/*                 value={formData.comment}
+                onChange={handleChange} */}
               ></textarea>
             </div>
             <FormButton>Send</FormButton>
