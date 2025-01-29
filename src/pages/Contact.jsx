@@ -68,8 +68,6 @@ function Contact() {
                   name="name"
                   id="name"
                   required
-{/*                   value={formData.name}
-                  onChange={handleChange} */}
                 />
               </div>
               <div className="form-control">
@@ -80,8 +78,6 @@ function Contact() {
                   name="email"
                   id="email"
                   required
-{/*                   value={formData.email}
-                  onChange={handleChange} */}
                 />
               </div>
             </div>
@@ -92,8 +88,6 @@ function Contact() {
                 name="comment"
                 id="comment"
                 required
-{/*                 value={formData.comment}
-                onChange={handleChange} */}
               ></textarea>
             </div>
            <button type="submit" className='w-full h-[50px] bg-yellow-500 text-base font-semibold text-black hover:bg-yellow-600 border-none rounded-md transition ease-in-out duration-500'>
