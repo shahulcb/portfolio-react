@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import About from "./pages/About";
 // import Blog from "./pages/Blog";
@@ -13,6 +14,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
+      <Toaster />
       <Navbar />
       <Routes>
         <Route index element={<Home />} />
