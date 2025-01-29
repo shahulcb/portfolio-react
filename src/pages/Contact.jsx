@@ -28,7 +28,8 @@ function Contact() {
     const formDataEncoded = new FormData(form);
     fetch("/", {
       method: "POST",
-      body: formDataEncoded,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formDataEncoded).toString()
     })
       .then(
         () => toast.success("Form submitted successfully!"),
