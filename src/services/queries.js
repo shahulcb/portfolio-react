@@ -10,6 +10,7 @@ export const GET_ME = gql`
       about
       socialLinks
       toolStacks
+      stats
       email
       images {
         url
@@ -19,8 +20,8 @@ export const GET_ME = gql`
 `;
 
 export const GET_ALL_WORKS = gql`
-  query {
-    allWorks {
+  query GetAllWorks($filter: WorkModelFilter) {
+    allWorks(filter: $filter) {
       id
       title
       workType
@@ -56,6 +57,20 @@ export const GET_ALL_SERVICES = gql`
       tag
       description
       points
+    }
+  }
+`;
+
+export const GET_ALL_TESTIMONIALS = gql`
+  query {
+    allTestimonials {
+      id
+      quote
+      author
+      role
+      image {
+        url
+      }
     }
   }
 `;

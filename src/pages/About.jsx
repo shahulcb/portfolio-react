@@ -9,8 +9,9 @@ function About() {
   const { me } = useMe();
 
   useEffect(() => {
-    document.title = me?.username + "| About";
+    document.title = me?.username + " | About";
   }, [me]);
+
   return (
     <Layout>
       <Section className={"border-none max-w-[700px] mx-auto lg:px-0"}>
@@ -18,7 +19,7 @@ function About() {
         <div className="flex flex-col gap-4">
           <p className="text-base font-light">{me?.about[1]}</p>
           <img
-            src={me?.images[1]?.url + `?fm=webp&q=80&h=400`}
+            src={me?.images[0]?.url + `?fm=webp&q=80&h=400`}
             alt=""
             className="max-h-[400px] w-full object-cover rounded-md"
           />

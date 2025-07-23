@@ -13,7 +13,7 @@ const Services = () => {
   const { me } = useMe();
 
   useEffect(() => {
-    document.title = me?.username + "| Services";
+    document.title = me?.username + " | Services";
   }, [me]);
 
   useEffect(() => {

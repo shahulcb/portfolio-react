@@ -14,8 +14,9 @@ function Works() {
   const { me } = useMe();
 
   useEffect(() => {
-    document.title = me?.username + "| Works";
+    document.title = me?.username + " | Works";
   }, [me]);
+
   useEffect(() => {
     const fetchWorks = async () => {
       try {
@@ -28,6 +29,7 @@ function Works() {
 
     fetchWorks();
   }, []);
+
   return (
     <Layout>
       <Section className={"border-none"}>

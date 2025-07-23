@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useMe } from "../context/MeContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const { me } = useMe();
@@ -11,11 +12,12 @@ function Navbar() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (!me?.roles?.length) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % me?.roles.length);
-    }, 1000);
+      setCurrentIndex((prev) => (prev + 1) % me.roles.length);
+    }, 2000);
     return () => clearInterval(interval);
-  }, [me?.roles.length]);
+  }, [me?.roles?.length]);
 
   useEffect(() => {
     const handleOutSideClick = (event) => {
@@ -43,9 +45,18 @@ function Navbar() {
           <h1 className="font-normal text-xl hover:text-yellow-500 transition ease-in-out duration-500 cursor-pointer">
             {me?.username}
           </h1>
-          <p className="font-light text-base text-customTextColor hidden lg:block">
-            {me?.roles[currentIndex]}
-          </p>
+          <AnimatePresence mode="popLayout">
+            <motion.p
+              key={currentIndex} // important for exit/enter animation
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4 }}
+              className="font-light text-base text-customTextColor hidden lg:block"
+            >
+              {me?.roles?.[currentIndex] ?? ""}
+            </motion.p>
+          </AnimatePresence>
         </div>
         <div
           className="block cursor-pointer lg:hidden"
@@ -92,13 +103,7 @@ function Navbar() {
           <i className="fa-solid fa-suitcase"></i>
           <p className="text-base font-medium">Services</p>
         </NavLink>
-        {/* <NavLink
-          to={"/blogs"}
-          className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"
-        >
-          <FontAwesomeIcon icon={faNewspaper} />
-          <p className="text-base font-medium">Blogs</p>
-        </NavLink> */}
+
         <NavLink
           to={"/about"}
           className="flex items-center px-8 py-5 gap-4 border-b cursor-pointer border-customBorderColor transition-all ease-in-out duration-500 hover:bg-customHoverColor hover:text-white"

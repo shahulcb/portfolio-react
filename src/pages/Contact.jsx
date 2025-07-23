@@ -19,7 +19,7 @@ function Contact() {
   // };
 
   useEffect(() => {
-    document.title = me?.username + "| Contact";
+    document.title = me?.username + " | Contact";
   }, [me]);
 
   // const handleSubmit = (e) => {
@@ -52,11 +52,7 @@ function Contact() {
           </a>
         </p>
 
-        <form
-          name="contact"
-          method="post"
-          data-netlify="true"
-        >
+        <form name="contact" method="post" data-netlify="true">
           <input type="hidden" name="form-name" value="contact" />
           <div className="flex flex-col gap-3">
             <div className="flex gap-3 flex-col md:flex-row">
@@ -90,9 +86,12 @@ function Contact() {
                 required
               ></textarea>
             </div>
-           <button type="submit" className='w-full h-[50px] bg-yellow-500 text-base font-semibold text-black hover:bg-yellow-600 border-none rounded-md transition ease-in-out duration-500'>
-           Send
-        </button>
+            <button
+              type="submit"
+              className="w-full h-[50px] bg-yellow-500 text-base font-semibold text-black hover:bg-yellow-600 border-none rounded-md transition ease-in-out duration-500"
+            >
+              Send
+            </button>
           </div>
         </form>
       </Section>
