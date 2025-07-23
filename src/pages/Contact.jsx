@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Layout from "./Layout";
 import Section from "../components/Section";
-import FormButton from "../components/Form/FormButton";
 import { useMe } from "../context/MeContext";
-import toast from "react-hot-toast";
 
 function Contact() {
   const { me } = useMe();

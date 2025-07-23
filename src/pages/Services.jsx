@@ -50,6 +50,15 @@ const Services = () => {
             </p>
           )}
         </Row>
+        <div className="flex flex-col gap-1">
+          <h2 className="text-[20px] font-normal">Note</h2>
+          <p className="text-customTextColor text-lg font-light">
+            “ All services include 1 year of free basic maintenance to ensure
+            your website or application runs smoothly. Major feature changes or
+            significant redesigns during this period may incur additional
+            charges. ”
+          </p>
+        </div>
       </Section>
     </Layout>
   );
